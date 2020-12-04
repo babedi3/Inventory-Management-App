@@ -13,8 +13,8 @@ namespace InventoryManagement.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    Name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Name = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
+                    NormalizedName = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -27,10 +27,10 @@ namespace InventoryManagement.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    UserName = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
+                    Email = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "character varying(2560)", maxLength: 2560, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     SecurityStamp = table.Column<string>(type: "text", nullable: true),
@@ -56,9 +56,9 @@ namespace InventoryManagement.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     AddressLine1 = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
-                    City = table.Column<string>(type: "character varying(17)", maxLength: 17, nullable: true),
-                    State = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
-                    PostalCode = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
+                    City = table.Column<string>(type: "character varying(170)", maxLength: 170, nullable: true),
+                    State = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    PostalCode = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     Country = table.Column<string>(type: "character varying(56)", maxLength: 56, nullable: true)
                 },
                 constraints: table =>

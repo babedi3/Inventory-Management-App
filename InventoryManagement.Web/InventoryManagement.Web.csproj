@@ -25,5 +25,12 @@
     <ProjectReference Include="..\InventoryManagement.Data\InventoryManagement.Data.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\InventoryManagement.Services\InventoryManagement.Services.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Serialization\" />
   </ItemGroup>
 </Project>

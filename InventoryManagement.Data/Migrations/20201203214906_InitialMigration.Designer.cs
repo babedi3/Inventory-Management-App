@@ -62,7 +62,7 @@ namespace InventoryManagement.Data.Migrations
                         .HasColumnType("character varying(100)");
 
                     b.Property<string>("City")
-                        .HasMaxLength(17)
+                        .HasMaxLength(200)
                         .HasColumnType("character varying(17)");
 
                     b.Property<string>("Country")

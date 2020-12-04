@@ -5,7 +5,7 @@ REPO_NAME ?= Inventory-Management-App
 
 .PHONY: mirgrations db
 
-mirgrations:
+migrations:
 	cd ./InventoryManagement.Data && dotnet ef --startup-project ../InventoryManagement.Web/ migrations add $(mname) && cd ..
 
 db:

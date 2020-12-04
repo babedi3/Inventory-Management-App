@@ -12,5 +12,10 @@ namespace InventoryManagement.Data
 
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductInventory> ProductInventories { get; set; }
+        public virtual DbSet<ProductInventorySnapshot> ProductInventorySnapshots { get; set; }
+        public virtual DbSet<SaleOrder> SaleOrders { get; set; }
+        public virtual DbSet<SalesOrderItem> SalesOrderItems { get; set; }
     }
 }

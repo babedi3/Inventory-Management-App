@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using InventoryManagement.Data;
 using Microsoft.EntityFrameworkCore;
+using InventoryManagement.Services.Product;
 
 namespace InventoryManagement.Web
 {
@@ -36,6 +37,8 @@ namespace InventoryManagement.Web
                 opts.EnableDetailedErrors();
                 opts.UseNpgsql(Configuration.GetConnectionString("im.dev"));
             });
+
+            services.AddTransient<IProductService, ProductService>();
 
             services.AddSwaggerGen(c =>
             {
