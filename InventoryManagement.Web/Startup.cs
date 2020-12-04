@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using InventoryManagement.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryManagement.Web
 {
@@ -28,6 +30,13 @@ namespace InventoryManagement.Web
         {
 
             services.AddControllers();
+
+            services.AddDbContext<InventoryDbContext>(opts =>
+            {
+                opts.EnableDetailedErrors();
+                opts.UseNpgsql(Configuration.GetConnectionString("im.dev"));
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InventoryManagement.Web", Version = "v1" });
