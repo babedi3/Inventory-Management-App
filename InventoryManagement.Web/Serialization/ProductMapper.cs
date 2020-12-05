@@ -2,7 +2,7 @@
 
 namespace InventoryManagement.Web.Serialization
 {
-    public class ProductMapper
+    public static class ProductMapper
     {
         /// <summary>
         /// Maps Product Data Model to ProductModel view model

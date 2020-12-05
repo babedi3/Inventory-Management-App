@@ -7,4 +7,9 @@
   <ItemGroup>
     <ProjectReference Include="..\InventoryManagement.Data\InventoryManagement.Data.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Inventory\" />
+    <Folder Include="Customer\" />
+    <Folder Include="Order\" />
+  </ItemGroup>
 </Project>
