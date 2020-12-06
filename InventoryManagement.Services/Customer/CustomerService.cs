@@ -78,6 +78,14 @@ namespace InventoryManagement.Services.Customer
             {
                 _db.Customers.Remove(customer);
                 _db.SaveChanges();
+
+                return new ServiceResponse<bool>
+                {
+                    Time = now,
+                    IsSuccess = true,
+                    Message = "Customer Created",
+                    Data = false
+                };
             }
 
             catch (Exception e)
@@ -85,7 +93,7 @@ namespace InventoryManagement.Services.Customer
                 return new ServiceResponse<bool>
                 {
                     Time = now,
-                    IsSuccess = true,
+                    IsSuccess = false,
                     Message = e.StackTrace,
                     Data = false
                 };

@@ -36,7 +36,7 @@ namespace InventoryManagement.Services.Order
         public List<SalesOrder> GetOrders()
         {
             return _db.SalesOrders
-                .Include(So => So.Customer)
+                .Include(so => so.Customer)
                 .ThenInclude(customer => customer.PrimaryAddress)
                 .Include(so => so.SalesOrderItems)
                 .ThenInclude(item => item.Product)
@@ -46,7 +46,6 @@ namespace InventoryManagement.Services.Order
         /// <summary>
         /// create open sales order
         /// </summary>
-        /// <param name="order"></param>
         /// <returns></returns>
         public ServiceResponse<bool> GenerateOpenOrder(SalesOrder order)
         {
@@ -81,13 +80,44 @@ namespace InventoryManagement.Services.Order
                     Data = false,
                     Message = e.StackTrace,
                     Time = DateTime.UtcNow
-                }
+                };
             }
         }
 
+        /// <summary>
+        /// mark open sales order as paid
+        /// </summary>
+        /// <returns></returns>
         public ServiceResponse<bool> MarkFulfilled(int id)
         {
-            throw new System.NotImplementedException();
+            var now = DateTime.UtcNow;
+            var order = _db.SalesOrders.Find(id);
+            order.UpdatedOn = now;
+            order.IsPaid = true;
+
+            try
+            {
+                _db.SalesOrders.Update(order);
+                _db.SaveChanges();
+
+                return new ServiceResponse<bool>
+                {
+                    IsSuccess = true,
+                    Data = true,
+                    Message = $"Order {order.Id} closed: Invoice paid in full.",
+                    Time = DateTime.UtcNow
+                };
+            }
+            catch (Exception e)
+            {
+                return new ServiceResponse<bool>
+                {
+                    IsSuccess = false,
+                    Data = false,
+                    Message = e.StackTrace,
+                    Time = DateTime.UtcNow
+                };
+            }
         }
     }
 }

@@ -102,15 +102,19 @@ namespace InventoryManagement.Services.Inventory
             _db.Add(snapshot);
         }
 
-
+        /// <summary>
+        /// Return Snapshot history for prior 4 hours
+        /// </summary>
+        /// <returns></returns>
         public List<ProductInventorySnapshot> GetSnapshotHistory()
         {
-            throw new NotImplementedException();
+            var earliest = DateTime.UtcNow - TimeSpan.FromHours(4);
+
+            return _db.ProductInventorySnapshots
+                 .Include(snap => snap.Product)
+                 .Where(snap => snap.SnapshotTime > earliest && !snap.Product.IsArchived)
+                 .ToList();
         }
 
-        public void CreateSnapshot()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

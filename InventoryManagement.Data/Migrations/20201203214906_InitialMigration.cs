@@ -56,6 +56,7 @@ namespace InventoryManagement.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     AddressLine1 = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    AddressLine2 = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     City = table.Column<string>(type: "character varying(170)", maxLength: 170, nullable: true),
                     State = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
                     PostalCode = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),

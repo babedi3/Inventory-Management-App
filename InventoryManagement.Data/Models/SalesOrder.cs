@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace InventoryManagement.Data.Models
 {
-    public class SaleOrder {
+    public class SalesOrder {
         public int Id { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }

@@ -5,12 +5,15 @@ namespace InventoryManagement.Data.Models
 {
     public class CustomerAddress
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public DateTime CreatedOn { get; set;  }
         public DateTime UpdatedOn { get; set; }
 
         [MaxLength(100)]
         public string AddressLine1 { get; set; }
+
+        [MaxLength(100)]
+        public string AddressLine2 { get; set; }
 
         [MaxLength(17)] //longest us city name is 17 characters
         public string City { get; set; }

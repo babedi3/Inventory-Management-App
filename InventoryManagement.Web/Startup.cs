@@ -14,6 +14,9 @@ using Microsoft.OpenApi.Models;
 using InventoryManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using InventoryManagement.Services.Product;
+using InventoryManagement.Services.Customer;
+using InventoryManagement.Services.Inventory;
+using InventoryManagement.Services.Order;
 
 namespace InventoryManagement.Web
 {
@@ -39,6 +42,9 @@ namespace InventoryManagement.Web
             });
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IInventoryService, InventoryService>();
+            services.AddTransient<IOrderService, OrderService>();
 
             services.AddSwaggerGen(c =>
             {
